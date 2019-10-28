@@ -16,6 +16,7 @@ Game Rules:-
 
 Add this project to your netbeans/java swing IDE and run it.
 Please inform me if you find any bugs.
+
 Work Left: Commenting the code.
 
 There are 11 buttons:-
