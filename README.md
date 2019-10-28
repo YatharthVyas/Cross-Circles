@@ -12,7 +12,7 @@ Game Rules:-
 • Play again button is set to visible only when the current game has concluded. <br>
 
 
-Technical Stuff:-
+<h3>Technical Stuff:-</h3>
 
 Add this project to your netbeans/java swing IDE and run it.
 Please inform me if you find any bugs.
