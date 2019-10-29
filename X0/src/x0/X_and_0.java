@@ -5,6 +5,7 @@
  */
 package x0;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +29,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton1.setBackground(Color.green);
+                jButton2.setBackground(Color.green);
+                jButton3.setBackground(Color.green);
             }
         }
         if((jButton4.getText()==jButton5.getText())&&jButton4.getText()!=""){
@@ -37,6 +41,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton4.setBackground(Color.green);
+                jButton5.setBackground(Color.green);
+                jButton6.setBackground(Color.green);
             }
         }
         if((jButton7.getText()==jButton8.getText())&&jButton7.getText()!=""){
@@ -46,6 +53,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton7.setBackground(Color.green);
+                jButton8.setBackground(Color.green);
+                jButton9.setBackground(Color.green);
             }
         }
         if((jButton1.getText()==jButton4.getText())&&jButton4.getText()!=""){
@@ -55,6 +65,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton1.setBackground(Color.green);
+                jButton4.setBackground(Color.green);
+                jButton7.setBackground(Color.green);
             }
         }
         if((jButton2.getText()==jButton5.getText())&&jButton2.getText()!=""){
@@ -64,6 +77,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton5.setBackground(Color.green);
+                jButton2.setBackground(Color.green);
+                jButton8.setBackground(Color.green);
             }
         }
         if((jButton3.getText()==jButton6.getText())&&jButton3.getText()!=""){
@@ -73,6 +89,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton6.setBackground(Color.green);
+                jButton9.setBackground(Color.green);
+                jButton3.setBackground(Color.green);
             }
         }
         if((jButton1.getText()==jButton5.getText())&&jButton1.getText()!=""){
@@ -82,6 +101,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton1.setBackground(Color.green);
+                jButton5.setBackground(Color.green);
+                jButton9.setBackground(Color.green);
             }
         }
         if((jButton3.getText()==jButton5.getText())&&jButton3.getText()!=""){
@@ -91,6 +113,9 @@ public class X_and_0 extends javax.swing.JFrame {
                     winner=2;
                 jLabel2.setText("Player " + winner +" Wins");
                 winnerFound=true;
+                jButton5.setBackground(Color.green);
+                jButton7.setBackground(Color.green);
+                jButton3.setBackground(Color.green);
             }
         }
         int tempCtr=0;
@@ -106,19 +131,23 @@ public class X_and_0 extends javax.swing.JFrame {
         
         if(winnerFound){
             jButton10.setVisible(true);
+            for (int i=0;i<9;i++){
+            buttonPress[i]=false;
+        }
         }
     }
     
     public X_and_0() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         for (int i=0;i<9;i++){
             buttonPress[i]=true;
         }
         jButton10.setVisible(false);
     }
     static int turn = 0;
-    int undo=0;
+    int undo=-1;
     Boolean buttonPress[] = new Boolean[9];
     Boolean winnerFound=false;
     
@@ -535,7 +564,10 @@ public class X_and_0 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Press Play Again!");
         }
         else if (undo==0){
-            JOptionPane.showMessageDialog(null, "Playarea is empty. If not, you cannot undo more than once per turn.");
+            JOptionPane.showMessageDialog(null, "You cannot undo more than once per turn.");
+        }
+        else if (undo==-1){
+            JOptionPane.showMessageDialog(null, "Play Area is empty!");
         }
         else if (undo==1){
             jButton1.setText("");
@@ -662,8 +694,17 @@ public class X_and_0 extends javax.swing.JFrame {
         jButton7.setText("");
         jButton8.setText("");
         jButton9.setText("");
+        jButton1.setBackground(Color.white);
+        jButton2.setBackground(Color.white);
+        jButton3.setBackground(Color.white);
+        jButton4.setBackground(Color.white);
+        jButton5.setBackground(Color.white);
+        jButton6.setBackground(Color.white);
+        jButton7.setBackground(Color.white);
+        jButton8.setBackground(Color.white);
+        jButton9.setBackground(Color.white);
         jLabel2.setText("Player 1's Turn");
-        undo=0;
+        undo=-1;
         winnerFound=false;
     }//GEN-LAST:event_jButton10ActionPerformed
      
