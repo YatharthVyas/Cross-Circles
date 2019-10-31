@@ -7,6 +7,7 @@ package x0;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import java.util.*;
 
 /**
  *
@@ -17,6 +18,11 @@ public class X_and_0 extends javax.swing.JFrame {
     /**
      * Creates new form X_and_0
      */
+    static int turn = 0;
+    Boolean buttonPress[] = new Boolean[9];
+    Boolean winnerFound=false;
+    Stack<Integer> st = new Stack<>();
+    
     public void setPlayerTurn(int t){
         jLabel2.setText("Player "+ (t+1) +"'s Turn");
     }
@@ -146,10 +152,6 @@ public class X_and_0 extends javax.swing.JFrame {
         }
         jButton10.setVisible(false);
     }
-    static int turn = 0;
-    int undo=-1;
-    Boolean buttonPress[] = new Boolean[9];
-    Boolean winnerFound=false;
     
     
     /**
@@ -411,7 +413,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton1.setText(opt);
             buttonPress[0]=false;
             checkWin();
-            undo=1;
+            st.push(1);
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -429,7 +431,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton2.setText(opt);
             buttonPress[1]=false;
             checkWin();
-            undo=2;
+            st.push(2);
        }     
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -447,7 +449,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton3.setText(opt); 
             buttonPress[2]=false;
             checkWin();
-            undo=3;
+            st.push(3);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -465,7 +467,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton4.setText(opt);      
             buttonPress[3]=false;
             checkWin();
-            undo=4;
+            st.push(4);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -483,7 +485,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton5.setText(opt); 
             buttonPress[4]=false;
             checkWin();
-            undo=5;
+            st.push(5);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -501,7 +503,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton6.setText(opt);  
             buttonPress[5]=false;
             checkWin();
-            undo=6;
+            st.push(6);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -519,7 +521,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton9.setText(opt);      
             buttonPress[8]=false;
             checkWin();
-            undo=9;
+            st.push(9);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -537,7 +539,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton8.setText(opt);
             buttonPress[7]=false;
             checkWin();
-            undo=8;
+            st.push(8);
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -555,7 +557,7 @@ public class X_and_0 extends javax.swing.JFrame {
             jButton7.setText(opt);      
             buttonPress[6]=false;
             checkWin();
-            undo=7;
+            st.push(7);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -563,13 +565,10 @@ public class X_and_0 extends javax.swing.JFrame {
         if(winnerFound){
             JOptionPane.showMessageDialog(null, "Press Play Again!");
         }
-        else if (undo==0){
-            JOptionPane.showMessageDialog(null, "You cannot undo more than once per turn.");
-        }
-        else if (undo==-1){
+        else if (st.isEmpty()){
             JOptionPane.showMessageDialog(null, "Play Area is empty!");
         }
-        else if (undo==1){
+        else if (st.peek()==1){
             jButton1.setText("");
             buttonPress[0]=true;
             if (turn==1){
@@ -579,9 +578,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-         else if (undo==2){
+         else if (st.peek()==2){
             jButton2.setText("");
             buttonPress[1]=true;
             if (turn==1){
@@ -591,9 +590,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-         else if (undo==3){
+         else if (st.peek()==3){
             jButton3.setText("");
             buttonPress[2]=true;
             if (turn==1){
@@ -603,9 +602,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==4){
+        else if (st.peek()==4){
             jButton4.setText("");
             buttonPress[3]=true;
             if (turn==1){
@@ -615,9 +614,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==5){
+        else if (st.peek()==5){
             jButton5.setText("");
             buttonPress[4]=true;
             if (turn==1){
@@ -627,9 +626,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==6){
+        else if (st.peek()==6){
             jButton6.setText("");
             buttonPress[5]=true;
             if (turn==1){
@@ -639,9 +638,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==7){
+        else if (st.peek()==7){
             jButton7.setText("");
             buttonPress[6]=true;
             if (turn==1){
@@ -651,9 +650,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==8){
+        else if (st.peek()==8){
             jButton8.setText("");
             buttonPress[7]=true;
             if (turn==1){
@@ -663,9 +662,9 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
-        else if (undo==9){
+        else if (st.peek()==9){
             jButton9.setText("");
             buttonPress[8]=true;
             if (turn==1){
@@ -675,7 +674,7 @@ public class X_and_0 extends javax.swing.JFrame {
                 turn=1;
             }
             jLabel2.setText("Player "+(turn+1)+"'s Turn");
-            undo=0;
+            st.pop();
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -704,7 +703,9 @@ public class X_and_0 extends javax.swing.JFrame {
         jButton8.setBackground(Color.white);
         jButton9.setBackground(Color.white);
         jLabel2.setText("Player 1's Turn");
-        undo=-1;
+        while (!st.isEmpty()){
+            st.pop();
+        }
         winnerFound=false;
     }//GEN-LAST:event_jButton10ActionPerformed
      

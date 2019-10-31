@@ -8,7 +8,7 @@ Game Rules:-
 • Player 2 goes next with "X" <br>
 • In order to win, you must have 3 in a row, column or diagonal. <br>
 • Undo is allowed only once per turn to prevent cheating. <br>
-• Undo cannot be used when a Player has won or draw occurred. <br>
+• Undo can be done multiple times. <br>
 • Play again button is set to visible only when the current game has concluded. <br>
 
 
