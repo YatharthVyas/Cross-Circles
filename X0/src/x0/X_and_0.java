@@ -124,17 +124,18 @@ public class X_and_0 extends javax.swing.JFrame {
                 jButton3.setBackground(Color.green);
             }
         }
-        int tempCtr=0;
-        for (int i=0;i<9;i++){
-            if (buttonPress[i]==false){
-                tempCtr++;
+        if(!winnerFound){
+            int tempCtr=0;
+            for (int i=0;i<9;i++){
+                if (buttonPress[i]==false){
+                    tempCtr++;
+                }
+            }
+            if(tempCtr==9){
+                jLabel2.setText("Draw!");
+                winnerFound=true;
             }
         }
-        if(tempCtr==9){
-            jLabel2.setText("Draw!");
-            winnerFound=true;
-        }
-        
         if(winnerFound){
             jButton10.setVisible(true);
             for (int i=0;i<9;i++){
