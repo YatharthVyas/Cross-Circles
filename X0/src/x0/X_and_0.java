@@ -23,9 +23,7 @@ public class X_and_0 extends javax.swing.JFrame {
     Boolean winnerFound=false;
     Stack<Integer> st = new Stack<>();
     
-    public void setPlayerTurn(int t){
-        jLabel2.setText("Player "+ (t+1) +"'s Turn");
-    }
+    
     
     public void checkWin(){
         if((jButton1.getText()==jButton2.getText())&&jButton1.getText()!=""){
@@ -142,7 +140,24 @@ public class X_and_0 extends javax.swing.JFrame {
             buttonPress[i]=false;
         }
         }
+        
     }
+    
+    public void btnPress(javax.swing.JButton tempBtn,int t){
+       String opt = "O";
+        if (turn==1){
+                opt = "X";
+                turn = 0;
+            }
+            else{
+                turn = 1;
+            }
+        jLabel2.setText("Player "+ (turn+1) +"'s Turn");
+        tempBtn.setText(opt);
+        buttonPress[t]=false;
+        checkWin();
+        st.push(t+1);
+}
     
     public X_and_0() {
         initComponents();
@@ -402,163 +417,55 @@ public class X_and_0 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        if (buttonPress[0]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton1.setText(opt);
-            buttonPress[0]=false;
-            checkWin();
-            st.push(1);
+           btnPress(jButton1,0);
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (buttonPress[1]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton2.setText(opt);
-            buttonPress[1]=false;
-            checkWin();
-            st.push(2);
+            btnPress(jButton2,1);
        }     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(buttonPress[2]){   
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton3.setText(opt); 
-            buttonPress[2]=false;
-            checkWin();
-            st.push(3);
+            btnPress(jButton3,2);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     if (buttonPress[3]){     
-        String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);   
-            jButton4.setText(opt);      
-            buttonPress[3]=false;
-            checkWin();
-            st.push(4);
+           btnPress(jButton4,3);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         if (buttonPress[4]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton5.setText(opt); 
-            buttonPress[4]=false;
-            checkWin();
-            st.push(5);
+            btnPress(jButton5,4);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if (buttonPress[5]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton6.setText(opt);  
-            buttonPress[5]=false;
-            checkWin();
-            st.push(6);
+            btnPress(jButton6,5);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if (buttonPress[8]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton9.setText(opt);      
-            buttonPress[8]=false;
-            checkWin();
-            st.push(9);
+            btnPress(jButton9,8);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if (buttonPress[7]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton8.setText(opt);
-            buttonPress[7]=false;
-            checkWin();
-            st.push(8);
+            btnPress(jButton8,7);
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if (buttonPress[6]){
-            String opt = "O";
-            if (turn==1){
-                opt = "X";
-                turn = 0;
-            }
-            else{
-                turn = 1;
-            }
-            setPlayerTurn(turn);
-            jButton7.setText(opt);      
-            buttonPress[6]=false;
-            checkWin();
-            st.push(7);
+            btnPress(jButton7,6);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
