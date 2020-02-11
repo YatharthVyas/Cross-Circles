@@ -1,4 +1,4 @@
-# Cross-Cirlces
+# Cross-Circles
 
 My first game developed using Java Swing.
 
